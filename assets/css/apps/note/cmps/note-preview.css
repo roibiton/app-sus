@@ -1,0 +1,37 @@
+.note-box {
+    max-width: fit-content;
+    height: 250px;
+    border: solid;
+    border-radius: 5%;
+    background-color: aliceblue;
+    align-items: center;
+    float:left;
+    margin:10px;
+}
+
+.note-box:hover {
+    background-color: rgb(216, 223, 229);
+}
+
+.to-do {
+    text-align: center;
+    margin: 20px;
+}
+
+.note-txt {
+    margin: inherit;
+}
+
+.label {
+    margin: inherit;
+}
+
+.title {
+    margin: inherit;
+    text-align: center;
+}
+
+.img-container {
+    margin: inherit;
+    padding-bottom: 10px;
+}
