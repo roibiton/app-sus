@@ -54,7 +54,7 @@ function query(){
 
     console.log(notes.length,gNotes.length)
 
-    if(!notes || notes.length !== gNotes.length) {
+    if(!notes || !notes.length) {
         notes = gNotes;
         _saveToStorage(notes)
     }
