@@ -68,3 +68,17 @@ function _saveToStorage(notes) {
 function _loadFromStorage() {
     return storageService.loadFromStorage(KEY)
 }
+
+function remove(noteId) {
+    let notes = _loadFromStorage()
+    mails = notes.filter(note => note.id !== noteId)
+    _saveToStorage(notes)
+    return Promise.resolve()
+  }
+
+  function getById(noteId) {
+    if (!noteId) return Promise.resolve(null)
+    const notes = _loadFromStorage()
+    const note = notes.find(note => note.id === noteId)
+    return Promise.resolve(note)
+  }
