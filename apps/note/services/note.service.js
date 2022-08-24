@@ -1,6 +1,6 @@
 import { storageService } from '../../../services/storage.service.js'
 
-
+console.log('hello')
 export const noteService = {
     query,
     // getById,
