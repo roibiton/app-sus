@@ -6,6 +6,7 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    getCurrFullDate,
 }
 
 function makeId(length = 6) {
@@ -59,4 +60,15 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function getCurrFullDate(t) {
+    const date = new Date(t)
+    const year = date.getFullYear()
+    let month = date.getMonth() + 1 +''
+    if (month.length < 2) month = 0 + month
+    let day = date.getDate() + ''
+    if (day.length < 2) day = 0 + day
+
+    return `${year}-${month}-${day}`
 }
