@@ -4,6 +4,7 @@ import { Home } from "./views/home.jsx"
 import { MailApp } from "./apps/mail/views/mail-app.jsx"
 import { MailDetails } from "./apps/mail/views/mail-details.jsx"
 import { NoteApp } from "./apps/note/views/note-app.jsx"
+import { MailAdd } from "./apps/mail/views/mail-add.jsx"
 
 
 const Router = ReactRouterDOM.HashRouter
@@ -14,6 +15,7 @@ export function App() {
         <section className="app">
             <AppHeader />
             <Switch>
+                <Route exact path="/mail/add" component={MailAdd} />
                 <Route path="/mail/:mailId" component={MailDetails} />
                 <Route path="/mail" component={MailApp} />
                 <Route path="/note" component={NoteApp} />

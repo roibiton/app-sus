@@ -1,5 +1,13 @@
 
 
-.mail-app {
+.mail-list {
     padding: 2em;
+    width: 75vw;
+}
+.side-bar{
+    width: 20vw;
+    margin-top: 5em;
+}
+.mail-app{
+   
 }

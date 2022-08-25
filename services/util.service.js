@@ -63,6 +63,18 @@ function getMonthName(date) {
 }
 
 function getCurrFullDate(t) {
+    const now= Date.now()
+    
+    if (now-t<=24*60*60){
+        var currentdate = new Date();
+        return`${currentdate.getHours()} : ${currentdate.getMinutes() }`
+    }
+
+    // else if (now-t<=24*60*60*2){
+    //     var currentdate = new Date();
+    //     return`yesterday`
+    // }
+
     const date = new Date(t)
     const year = date.getFullYear()
     let month = date.getMonth() + 1 +''

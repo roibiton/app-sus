@@ -1,11 +1,10 @@
 import { storageService } from "../../../services/storage.service.js"
 import { utilService } from "../../../services/util.service.js"
-
 export const mailService = {
     query,
     getById,
     remove,
-    createNewMail,
+    sendNewMail,
     toggleIsStarred,
     setIsRead,
 
@@ -20,11 +19,60 @@ const loggedinUser = {
 const gMails = [
     {
         from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e102',
+        subject: 'Missed u..',
+        body: 'Would love to catch up sometimes',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'nikol',
+            email: 'nikol@dahary.com'
+        },
+    },
+    {
+        
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e202',
+        subject: 'new changes',
+        body: 'transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+    },
+    {
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e302',
+        subject: 'Fuck u..',
+        body: 'hope we can meet again very soon😪',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        }
+    },
+    {
+        from: {
             name: 'yosi',
             email: 'yosi@yosi.com'
         },
         id: 'e101',
-        subject: 'Miss you!',
+        subject: 'Hello',
         body: 'Important policy updates coming to Discord',
         isRead: false,
         isStarred: false,
@@ -33,36 +81,771 @@ const gMails = [
             name: 'Appsus',
             email: 'user@appsus.com'
         }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e103',
+        subject: 'Thanks!',
+        body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1555133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e104',
+        subject: 'new changes',
+        body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
+        isRead: false,
+        isStarred: false,
+        sentAt: 1385422620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e105',
+        subject: 'smokey!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
 
+        from: {
+            name: '899-events',
+            email: 'ev@899.com'
+        },
+        id: 'e106',
+        subject: 'confirm',
+        body: `
+        Hello,
+        Your order for event 899 has been registered in our system and is now pending for the producer's confirmation.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
 
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e107',
+        subject: 'subscribe',
+        body: `Order confirmations are the sole responsibility of the event's producer and are subjected to the licensed amount of attendees allowed in venue.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'niv',
+            email: 'niv@niv.com'
+        },
+        id: 'e108',
+        subject: 'hey!',
+        body: `you will received a text message and an email with your order confirmation and digital ticket to enter the event with.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'yosi',
+            email: 'yosi@yosi.com'
+        },
+        id: 'e109',
+        subject: 'Hello',
+        body: 'Important policy updates coming to Discord',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1442133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e603',
+        subject: 'Thanks!',
+        body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1555133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e704',
+        subject: 'new changes',
+        body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
+        isRead: false,
+        isStarred: false,
+        sentAt: 1385422620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e805',
+        subject: 'smokey!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'coacher',
+            email: 'coach@suck.com'
+        },
+        id: 'e905',
+        subject: 'Duck you!',
+        body: `Weekly Coaching 🤩: Roi, success is balance`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'zoom',
+            email: 'zoom@zoom.com'
+        },
+        id: 'e115',
+        subject: 'fuck you!',
+        body: `Top 3 Ways to Secure Your Zoom Meetings`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'niv',
+            email: 'niv@niv.com'
+        },
+        id: 'e127',
+        subject: 'fuck you!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
     },
     {
         from: {
             name: 'Appsus',
             email: 'user@appsus.com'
         },
-        id: 'e102',
-        subject: 'love you!',
+        id: 'e1222',
+        subject: 'Missed u..',
         body: 'Would love to catch up sometimes',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'nikol',
+            email: 'nikol@dahary.com'
+        },
+    },
+    {
+        
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e1212',
+        subject: 'new changes',
+        body: 'transaction was successful. Thanks!',
         isRead: false,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
             name: 'roni',
             email: 'roni@roni.com'
+        },
+    },
+    {
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e1192',
+        subject: 'Fuck u..',
+        body: 'hope we can meet again very soon...',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
         }
     },
     {
         from: {
-            name: 'niv',
-            email: 'niv@niv.com'
+            name: 'yosi',
+            email: 'yosi@yosi.com'
         },
-        id: 'e103',
-        subject: 'fuck you!',
+        id: 'e1181',
+        subject: 'Hello',
+        body: 'Important policy updates coming to Discord',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1442133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e1163',
+        subject: 'Thanks!',
         body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
         isRead: false,
         isStarred: false,
-        sentAt: 1200132620594,
+        sentAt: 1555133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e1154',
+        subject: 'new changes',
+        body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
+        isRead: false,
+        isStarred: false,
+        sentAt: 1385422620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e1145',
+        subject: 'smokey!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: '899-events',
+            email: 'ev@899.com'
+        },
+        id: 'e1136',
+        subject: 'confirm',
+        body: `
+        Hello,
+        Your order for event 899 has been registered in our system and is now pending for the producer's confirmation.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e1127',
+        subject: 'subscribe',
+        body: `Order confirmations are the sole responsibility of the event's producer and are subjected to the licensed amount of attendees allowed in venue.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'niv',
+            email: 'niv@niv.com'
+        },
+        id: 'e1118',
+        subject: 'hey!',
+        body: `you will received a text message and an email with your order confirmation and digital ticket to enter the event with.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'yosi',
+            email: 'yosi@yosi.com'
+        },
+        id: 'e199',
+        subject: 'Hello',
+        body: 'Important policy updates coming to Discord',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1442133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e183',
+        subject: 'Thanks!',
+        body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1555133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e174',
+        subject: 'new changes',
+        body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
+        isRead: false,
+        isStarred: false,
+        sentAt: 1385422620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e165',
+        subject: 'smokey!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'coacher',
+            email: 'coach@suck.com'
+        },
+        id: 'e155',
+        subject: 'Duck you!',
+        body: `Weekly Coaching 🤩: Roi, success is balance`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'zoom',
+            email: 'zoom@zoom.com'
+        },
+        id: 'e145',
+        subject: 'fuck you!',
+        body: `Top 3 Ways to Secure Your Zoom Meetings`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'niv',
+            email: 'niv@niv.com'
+        },
+        id: 'e137',
+        subject: 'fuck you!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e5572',
+        subject: 'Missed u..',
+        body: 'Would love to catch up sometimes',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'nikol',
+            email: 'nikol@dahary.com'
+        },
+    },
+    {
+        
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e5562',
+        subject: 'new changes',
+        body: 'transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+    },
+    {
+        from: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+        id: 'e5552',
+        subject: 'Fuck u..',
+        body: 'hope we can meet again very soon...',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1203129930594,
+        to: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        }
+    },
+    {
+        from: {
+            name: 'yosi',
+            email: 'yosi@yosi.com'
+        },
+        id: 'e5541',
+        subject: 'Hello',
+        body: 'Important policy updates coming to Discord',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1442133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e5533',
+        subject: 'Thanks!',
+        body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1555133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e5524',
+        subject: 'new changes',
+        body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
+        isRead: false,
+        isStarred: false,
+        sentAt: 1385422620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e5515',
+        subject: 'smokey!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: '899-events',
+            email: 'ev@899.com'
+        },
+        id: 'e4496',
+        subject: 'confirm',
+        body: `
+        Hello,
+        Your order for event 899 has been registered in our system and is now pending for the producer's confirmation.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e4487',
+        subject: 'subscribe',
+        body: `Order confirmations are the sole responsibility of the event's producer and are subjected to the licensed amount of attendees allowed in venue.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'niv',
+            email: 'niv@niv.com'
+        },
+        id: 'e4478',
+        subject: 'hey!',
+        body: `you will received a text message and an email with your order confirmation and digital ticket to enter the event with.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'yosi',
+            email: 'yosi@yosi.com'
+        },
+        id: 'e4469',
+        subject: 'Hello',
+        body: 'Important policy updates coming to Discord',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1442133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e4453',
+        subject: 'Thanks!',
+        body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
+        isRead: false,
+        isStarred: false,
+        sentAt: 1555133920434,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'roni',
+            email: 'roni@roni.com'
+        },
+        id: 'e4444',
+        subject: 'new changes',
+        body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
+        isRead: false,
+        isStarred: false,
+        sentAt: 1385422620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        }
+    },
+    {
+        from: {
+            name: 'coffeshop',
+            email: 'smokey@monkey.com'
+        },
+        id: 'e4435',
+        subject: 'smokey!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'coacher',
+            email: 'coach@suck.com'
+        },
+        id: 'e4425',
+        subject: 'Duck you!',
+        body: `Weekly Coaching 🤩: Roi, success is balance`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'zoom',
+            email: 'zoom@zoom.com'
+        },
+        id: 'e4415',
+        subject: 'fuck you!',
+        body: `Top 3 Ways to Secure Your Zoom Meetings`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
+        to: {
+            name: 'Appsus',
+            email: 'user@appsus.com'
+        },
+
+        from: {
+            name: 'niv',
+            email: 'niv@niv.com'
+        },
+        id: 'e4409',
+        subject: 'fuck you!',
+        body: `Thank you for visiting Smokey Coffeeshop in Amsterdam.
+        We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
+        Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
+        Thanks again, and we hope to see you again soon.`,
+        isRead: false,
+        isStarred: false,
+        sentAt: 139652620594,
         to: {
             name: 'Appsus',
             email: 'user@appsus.com'
@@ -87,31 +870,40 @@ function query(filterBy) {
         _saveToStorage(mails)
     }
 
-    if (filterBy) {
-        let { search } = filterBy
-        console.log('filterBy from service', filterBy);
+    if (!filterBy) return Promise.resolve(mails)
+    console.log('filterBy from service', filterBy);
+
+    let { search } = filterBy
+    if (search) {
         mails = mails.filter(mail => (
             mail.body.includes(search) ||
             mail.subject.includes(search) ||
             mail.from.name.includes(search)
 
         ))
-
-        if (filterBy.isRead !== undefined) {
-            mails = mails.filter(mail => mail.isRead && filterBy.isRead || !mail.isRead && !filterBy.isRead)
-        }
-        if (filterBy.isStarred !== undefined) {
-            mails = mails.filter(mail => mail.isStarred && filterBy.isStarred || !mail.isRead && !filterBy.isRead)
-        }
     }
+
+    if (filterBy.isRead !== undefined) {
+        mails = mails.filter(mail => mail.isRead && filterBy.isRead || !mail.isRead && !filterBy.isRead)
+    }
+    if (filterBy.isStarred !== undefined) {
+        mails = mails.filter(mail => mail.isStarred && filterBy.isStarred || !mail.isStarred && !filterBy.isStarred)
+    }
+    if (filterBy.status === 'inbox') {
+
+        mails = mails.filter(mail => mail.to.email === loggedinUser.email)
+    } else if (filterBy.status === 'sent') {
+
+        mails = mails.filter(mail => mail.to.email !== loggedinUser.email)
+    }
+
     return Promise.resolve(mails)
 }
 
 
 function _add(mail) {
     let mails = _loadFromStorage()
-    const existMail = mails.find(currMail => mail.id === currMail.id)
-    if (existMail) return Promise.resolve(existMail)
+
     mails = [mail, ...mails]
     _saveToStorage(mails)
     return Promise.resolve(mail)
@@ -145,24 +937,7 @@ function setIsRead(mailId, val) {
     return _update(existMail)
 }
 
-function createNewMail() {
-    const mail = {
-
-        from: {
-            name: 'Appsus',
-            email: 'yosi@yosi.com'
-        },
-        id: utilService.makeId(3),
-        subject: 'new add!',
-        body: 'you just added me, tnx!',
-        isRead: false,
-        isStarred: false,
-        sentAt: 1550835950594,
-        to: {
-            name: 'niv',
-            email: 'niv@niv.com'
-        }
-    }
+function sendNewMail(mail) {
     return _add(mail)
 }
 

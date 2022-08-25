@@ -2,11 +2,13 @@ import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
 import { showErrorMsg, showSuccessMsg } from ' ../../../services/event-bus.service.js'
-
+import { MailAdd } from "../views/mail-add.js"
 export class MailApp extends React.Component {
     state = {
         mails: [],
-        filterBy: null,
+        filterBy: {
+            status: 'inbox'
+        },
     }
 
     componentDidMount() {
@@ -23,6 +25,12 @@ export class MailApp extends React.Component {
 
     onSetFilter = (filterBy) => {
         this.setState({ filterBy }, this.loadMails)
+    }
+
+    onSetStatusFilter = (status) => {
+        const filterBy = { ...this.state.filterBy }
+        filterBy.status = status
+        this.onSetFilter(filterBy)
     }
 
     onAddItem = () => {
@@ -56,7 +64,7 @@ export class MailApp extends React.Component {
         mailService.toggleIsStarred(mailId)
             .then((updatedMail) => {
                 console.log('Starred!')
-                const mails = this.state.mails.map(mail => (mail.id !== mailId)? mail : updatedMail)
+                const mails = this.state.mails.map(mail => (mail.id !== mailId) ? mail : updatedMail)
                 this.setState({ mails })
 
 
@@ -72,18 +80,32 @@ export class MailApp extends React.Component {
 
 
     render() {
+        const { Link } = ReactRouterDOM
         const { mails } = this.state
-        const { onSetFilter, onRemoveMail, onStarredMail, onReadMail } = this
+        const { onSetFilter, onSetStatusFilter, onRemoveMail, onStarredMail, onReadMail } = this
         return (
-            <section className="mail-app">
-                <h3 className="second-title" >Mail</h3>
-
+            <section >
                 <MailFilter onSetFilter={onSetFilter} />
 
-                <button onClick={() => { this.onAddItem() }}>➕</button>
+                <div className=" flex mail-app">
+                    <div className="side-bar flex column">
+                        <Link to={"/mail/add"}>                          
+                            <button>➡➡➡</button>
+                        </Link>
+                        <button onClick={() => {
+                            onSetStatusFilter('inbox')
+                        }}>Inbox</button>
+                        <button onClick={() => {
+                            onSetStatusFilter('sent')
+                        }}>Sent</button>
 
-                <MailList mails={mails} onRemoveMail={onRemoveMail}
-                    onStarredMail={onStarredMail} onReadMail={onReadMail} />
+                    </div>
+
+                    <div className="mail-list">
+                        <MailList mails={mails} onRemoveMail={onRemoveMail}
+                            onStarredMail={onStarredMail} onReadMail={onReadMail} />
+                    </div>
+                </div>
             </section>
         )
     }
