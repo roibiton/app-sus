@@ -3,14 +3,33 @@ export class MailFilter extends React.Component {
     state = {
         filterBy: {
             search: '',
-            // minPrice: '',
-            // maxPrice: ''
+            isRead: undefined,
+            isStarred: undefined
         },
     }
 
     handleChange = ({ target }) => {
         const field = target.name
-        const value = target.type === 'number' ? +target.value : target.value
+        var value = target.type === 'number' ? +target.value : target.value
+
+        if (field === 'isRead' ) {
+            console.log('Value is:', value)
+            if (value !== '') {
+                value = (value === 'read')
+            } else {
+                value = undefined
+            }
+        }
+        
+        if (field === 'isStarred' ) {
+            console.log('Value is:', value)
+            if (value !== '') {
+                value = (value === 'starred')
+            } else {
+                value = undefined
+            }
+        }
+
         this.setState((prevState) => ({
             filterBy: {
                 ...prevState.filterBy,
@@ -19,59 +38,44 @@ export class MailFilter extends React.Component {
         }), () => {
             this.props.onSetFilter(this.state.filterBy)
         })
-        // this.props.onSetFilter(this.state.filterBy)
     }
 
     onFilter = (ev) => {
         ev.preventDefault()
-        
+
     }
 
     render() {
-        const { search} = this.state.filterBy
+        const {handleChange} = this
+        const {filterBy} = this.state
+
         return <section className="mail-filter">
-            {/* <form onSubmit={this.onFilter}> */}
-                <label htmlFor="by-search">in mail :</label>
-                <input
-                    name="search" id="by-search"
-                    type="search"
-                    onChange={this.handleChange}
-                    value={search}
-                    />
 
-                {/* <input
-                    type="text"
-                    placeholder="by language.."
-                    id="by-language"
-                    name="language"
-                    value={language}
-                    onChange={this.handleChange}
-                /> */}
+            <label htmlFor="by-search">in mail :</label>
+            <input
+                name="search" id="by-search"
+                type="search"
+                onChange={this.handleChange}
+                value={filterBy.search}
+            />
 
+            <div>
+                <select name="isRead" onChange={handleChange}>
+                    <option value="">All</option>
+                    <option value="read">Read</option>
+                    <option value="unread">Unread</option>
+                </select>
+            </div>
 
-                {/* <label htmlFor="by-min-price">Min Price :</label>
-                <input
-                    type="number"
-                    placeholder="by min Price.."
-                    id="by-min-Price"
-                    name="minPrice"
-                    value={minPrice}
-                    onChange={this.handleChange}
-                />
+            {/* <div>
+                <select name="isStarred" onChange={handleChange}>
+                    <option value="">none</option>
+                    <option value="Starred">Starred</option>
+                    <option value="Unstarred">Unstarred</option>
+                </select>
+            </div> */}
 
-                <label htmlFor="by-max-Price">Max Price :</label>
-                <input
-                    type="number"
-                    placeholder="by max Price.."
-                    id="by-max-Price"
-                    name="maxPrice"
-                    value={maxPrice}
-                    onChange={this.handleChange}
-                /> */}
-
-                
-
-            {/* </form> */}
+        
         </section>
     }
 }

@@ -1,5 +1,7 @@
 /* Setup */
 
+
+
 @import './setup/variables.css';
 /* @import './setup/fonts.css'; */
 
@@ -26,3 +28,7 @@
 @import './apps/note/cmps/note-preview.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-preview.css';
+
+.debug *{
+    outline: 1px solid red;
+}

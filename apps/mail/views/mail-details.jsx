@@ -1,7 +1,12 @@
 import { LongText } from '../cmps/long-text.jsx';
 import { mailService } from "../services/mail.service.js"
+<<<<<<< HEAD
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js';
 import { utilService } from '../../../services/util.service.js';
+=======
+
+import {utilService} from '../../../services/util.service.js';
+>>>>>>> 0ed2c416e126495ecaf3d45f42e2258dfe21a027
 
 const { Link } = ReactRouterDOM
 
@@ -26,15 +31,12 @@ export class MailDetails extends React.Component {
             .then((mail) => {
                 if (!mail) return this.onGoBack()
                 this.setState({ mail })
+                mailService.setIsRead(mailId, true)
             })
     }
+    
 
-    onRemoveMail = () => {
-
-        mailService.remove(this.state.mail.id)
-            .then(this.onGoBack)
-        showErrorMsg('mail removed')
-    }
+   
 
     onGoBack = () => {
         this.props.history.push('/mail')
@@ -49,7 +51,7 @@ export class MailDetails extends React.Component {
         return <article>
             <h2>{mail.from.name}</h2>
             <h4>{mail.subject}</h4>
-            <LongText mailText={mail.body} />
+            <LongText mailText={mail.body} val1={'⬅'} val2={'➡'}/>
             <p>{sentTime}</p>
             <button onClick={onRemoveMail}>Delete</button>
             <button onClick={onGoBack}>Go Back!</button>
