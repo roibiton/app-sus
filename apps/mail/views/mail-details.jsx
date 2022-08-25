@@ -1,7 +1,7 @@
 import { LongText } from '../cmps/long-text.jsx';
 import { mailService } from "../services/mail.service.js"
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js';
-import {utilService} from '../../../services/util.service.js';
+import { utilService } from '../../../services/util.service.js';
 
 const { Link } = ReactRouterDOM
 
@@ -14,11 +14,11 @@ export class MailDetails extends React.Component {
         this.loadMail()
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.match.params.mailId !== this.props.match.params.mailId) {
-            this.loadMail()
-        }
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevProps.match.params.mailId !== this.props.match.params.mailId) {
+    //         this.loadMail()
+    //     }
+    // }
 
     loadMail = () => {
         const { mailId } = this.props.match.params
@@ -43,8 +43,8 @@ export class MailDetails extends React.Component {
     render() {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
-        const { onRemoveMail,onGoBack } = this
-        const sentTime= utilService.getCurrFullDate(mail.sentAt)
+        const { onRemoveMail, onGoBack } = this
+        const sentTime = utilService.getCurrFullDate(mail.sentAt)
 
         return <article>
             <h2>{mail.from.name}</h2>

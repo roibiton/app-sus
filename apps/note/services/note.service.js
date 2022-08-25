@@ -1,10 +1,6 @@
 import { storageService } from '../../../services/storage.service.js'
 
 console.log('hello')
-export const noteService = {
-    query,
-    // getById,
-  }
 
 const KEY = 'noteDB'
 
@@ -12,7 +8,7 @@ const gNotes = [
     {
      id: "n101",
      type: "note-txt",
-     isPinned: true,
+     title: "text note",
      info: {
      txt: "Fullstack Me Baby!"
      }
@@ -32,7 +28,7 @@ const gNotes = [
      id: "n103",
      type: "note-todos",
      info: {
-     label: "Get my stuff together",
+     title: "Get my stuff together",
      todos: [
      { txt: "Driving liscence", doneAt: null },
      { txt: "Coding power", doneAt: 187111111 }
@@ -49,10 +45,16 @@ const gNotes = [
      },
 ]
 
+export const noteService = {
+    query,
+    remove,
+    getById,
+    _saveToStorage,
+    gNotes,
+  }
+
 function query(){
     let notes =_loadFromStorage() 
-
-    console.log(notes.length,gNotes.length)
 
     if(!notes || !notes.length) {
         notes = gNotes;
@@ -70,8 +72,9 @@ function _loadFromStorage() {
 }
 
 function remove(noteId) {
+    console.log(noteId)
     let notes = _loadFromStorage()
-    mails = notes.filter(note => note.id !== noteId)
+    notes = notes.filter(note => note.id !== noteId)
     _saveToStorage(notes)
     return Promise.resolve()
   }
