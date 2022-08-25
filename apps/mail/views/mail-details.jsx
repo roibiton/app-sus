@@ -1,12 +1,6 @@
 import { LongText } from '../cmps/long-text.jsx';
 import { mailService } from "../services/mail.service.js"
-<<<<<<< HEAD
-import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js';
 import { utilService } from '../../../services/util.service.js';
-=======
-
-import {utilService} from '../../../services/util.service.js';
->>>>>>> 0ed2c416e126495ecaf3d45f42e2258dfe21a027
 
 const { Link } = ReactRouterDOM
 
