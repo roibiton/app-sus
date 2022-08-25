@@ -1,3 +1,28 @@
-.mail-list{
-    max-width: 80%;
+.mail-list table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.mail-list tr {
+    border-bottom: 1px solid lightblue;
+}
+
+.mail-list tr.mail-unread {
+    font-weight: bold;
+}
+
+/* .mail-preview-container{
+    background-color: rgba(49, 47, 47, 0.101);
+    border: 0.1em solid black;
+} */
+
+
+.mail-list button.starred {
+    color: gold;
+    
+   
+}
+
+.mail-preview-btns {
+    
 }

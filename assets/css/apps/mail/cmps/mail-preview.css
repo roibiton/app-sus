@@ -1,4 +1,9 @@
-.mail-body h4{
-    display: inline-block;
-    font-weight: bold;
+
+
+.btn-mail-preview {
+    border-radius: 50%;
+}
+
+.btn-star {
+    color: orange;
 }

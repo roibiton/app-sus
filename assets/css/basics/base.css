@@ -21,3 +21,17 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+button {
+    cursor: pointer;
+}
+
+.btn {
+    border:0;
+    padding: 3px;
+}
+
+.btn:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+}

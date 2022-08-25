@@ -52,7 +52,7 @@ const gNotes = [
 function query(){
     let notes =_loadFromStorage() 
 
-    console.log(notes.length,gNotes.length)
+    console.log(notes)
 
     if(!notes || !notes.length) {
         notes = gNotes;

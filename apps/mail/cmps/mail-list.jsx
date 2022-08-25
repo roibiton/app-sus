@@ -1,11 +1,23 @@
 import { MailPreview } from './mail-preview.jsx';
 
-export function MailList(props) {
-     const { mails} = props
+export function MailList({ mails, onRemoveMail, onStarredMail, onReadMail }) {
 
-     return <section className="mail-list">
-          {mails.map(currMail => <MailPreview
-               key={currMail.id}
-               mail={currMail} />)}
+     // console.log('id',mails[0].id)
+
+     return <section className="mail-list ">
+          <table>
+               <tbody>
+                    {mails.map(currMail =>
+
+                         <tr className={(!currMail.isRead)? 'mail-unread' : '' } key={currMail.id}>
+                              <MailPreview
+                                   onReadMail={onReadMail}
+                                   onRemoveMail={onRemoveMail}
+                                   onStarredMail={onStarredMail}
+                                   mail={currMail} />
+                         </tr>)}
+               </tbody>
+
+          </table>
      </section>
 }
