@@ -2,16 +2,18 @@ import { noteService } from "../services/note.service.js"
 import { NoteList } from "./note-list.jsx";
 import { utilService } from "../../../services/util.service.js";
 
-export class EditList extends React.Component {
 
-    
+
+export class EditList extends React.Component {
 
     state = {
         note: {
-            id: 'test',
+            id: '',
             title: '',
-            info: { txt: '' },
-            type: 'note-txt'
+            info: { txt: '', },
+            type: 'note-txt',
+            newTxt: '',
+            backgroundColor: 'lightblue'
         }
     }
 
@@ -31,25 +33,26 @@ export class EditList extends React.Component {
                 [prop]: val
             }
         }))
-        console.log(this.state.note)
     }
 
     onSubmit = (ev) => {
         ev.preventDefault()
         const note = this.state.note
-        console.log('submit note', note)
-        console.log(noteService.gNotes, 'gNotes')
-        noteService.gNotes.push(note)
-        noteService._saveToStorage(noteService.gNotes)
-        return noteService.query()
-            .then((notes) => {
-                return <NoteList notes={notes} />
-            })
+        const info = this.state.note.info
+        const notes = noteService._loadFromStorage()
+        note.id = utilService.makeId()
+        info.txt = this.state.note.newTxt
+        notes.push(note)
+        noteService._saveToStorage(notes)
+        this.props.loadNotes()
+    }
+
+    uploadPhoto = () => {
+        console.log('img')
     }
 
     render() {
-        const { note } = this.props
-        const { title, txt } = this.state.note
+        const { title, newTxt } = this.state.note
 
         return <section className="note-container">
             <div className="note-submit">
@@ -70,18 +73,19 @@ export class EditList extends React.Component {
                     </div>
 
                     <div className="input-field">
-                        <label htmlFor="review-txt">Write something </label>
+                        <label htmlFor="txt">Write something </label>
                         <textarea
                             type="textarea"
                             placeholder="text..."
-                            id="review-txt"
-                            value={txt}
-                            name="txt"
+                            id="newTxt"
+                            value={newTxt}
+                            name="newTxt"
                             onChange={this.handleChange}
                         />
                     </div>
 
                     <button className="btn btn-review">Submit</button>
+                    <button onClick={this.uploadPhoto}>img</button>
                 </form>
             </div>
         </section >

@@ -5,8 +5,8 @@
     border-radius: 5%;
     background-color: aliceblue;
     align-items: center;
-    float:left;
-    margin:10px;
+    float: left;
+    margin: 10px;
 }
 
 .note-box:hover {
@@ -19,10 +19,6 @@
 }
 
 .note-txt {
-    margin: inherit;
-}
-
-.label {
     margin: inherit;
 }
 

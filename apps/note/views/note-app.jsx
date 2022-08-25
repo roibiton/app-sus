@@ -17,13 +17,13 @@ export class NoteApp extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.match.params.noteId !== this.props.match.params.noteId) {
-            this.loadCar()
+            this.loadNotes()
         }
     }
 
     loadNotes = () => {
         noteService.query()
-            .then(notes => this.setState({ notes }))
+            .then(notes => this.setState({ notes, isBounce: false }))
     }
 
     onRemoveNote = (noteId) => {
@@ -43,11 +43,10 @@ export class NoteApp extends React.Component {
 
     render() {
         const { notes } = this.state
-        console.log('notes',notes)
-        const { onRemoveNote } = this
+        const { onRemoveNote, loadNotes } = this
         return <section className="note-app">
             {/* <Link to="/note/edit"><button>Add note</button></Link> */}
-            <EditList onRemoveNote={onRemoveNote}/>
+            <EditList onRemoveNote={onRemoveNote} loadNotes={loadNotes} />
             <NoteList notes = {notes} onRemoveNote={onRemoveNote} />
             <Link to="/note/edit"><button>edit</button></Link>
         </section>

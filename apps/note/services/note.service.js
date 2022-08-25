@@ -1,12 +1,11 @@
 import { storageService } from '../../../services/storage.service.js'
 
-console.log('hello')
-
 const KEY = 'noteDB'
 
 const gNotes = [
     {
      id: "n101",
+     backgroundColor:'green',
      type: "note-txt",
      title: "text note",
      info: {
@@ -15,6 +14,7 @@ const gNotes = [
     },
     {
      id: "n102",
+     backgroundColor:'lightblue',
      type: "note-img",
      info: {
      url: "../assets/img/meme-img.jpg",
@@ -26,7 +26,9 @@ const gNotes = [
     },
     {
      id: "n103",
+     backgroundColor:'yellow',
      type: "note-todos",
+     isMarked:false,
      info: {
      title: "Get my stuff together",
      todos: [
@@ -37,6 +39,7 @@ const gNotes = [
      },
      {
       id: "n104",
+      backgroundColor:'red',
       type: "note-video",
       info: {
       title: "my-video",
@@ -50,6 +53,7 @@ export const noteService = {
     remove,
     getById,
     _saveToStorage,
+    _loadFromStorage,
     gNotes,
   }
 
