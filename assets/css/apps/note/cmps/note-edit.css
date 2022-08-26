@@ -2,5 +2,10 @@
     border: 2px solid;
     display: block;
     max-width: fit-content;
-    
+    margin: auto;
+
+}
+
+.submit-btn {
+    margin-right: 10px;
 }

@@ -1,12 +1,31 @@
+.note-preview {
+    width: 100%;
+    /* height: fit-content;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 1em;
+    transition: all 2.4s;
+    text-align: -webkit-center; */
+
+}
+
 .note-box {
-    max-width: fit-content;
-    height: 250px;
-    border: solid;
-    border-radius: 5%;
-    background-color: aliceblue;
-    align-items: center;
-    float: left;
-    margin: 10px;
+    height: fit-content;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 1em;
+    transition: transform 1.4s;
+    text-align: -webkit-center;
+    text-rendering: geometricPrecision;
+}
+
+.note-box .note-txt-title {
+    background-color: inherit;
+}
+
+.note-box .note-txt-area {
+    background-color: inherit;
 }
 
 .note-box:hover {
@@ -18,8 +37,20 @@
     margin: 20px;
 }
 
-.note-txt {
+.note-txt-area {
     margin: inherit;
+    text-align: center;
+    max-width: fit-content;    
+    border: none;
+    resize: none;
+}
+
+.note-txt-area:focus{
+    outline: none;
+}
+
+.note-txt-area:hover{
+    box-shadow:black;
 }
 
 .title {
@@ -27,7 +58,27 @@
     text-align: center;
 }
 
+.note-txt-title {
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    resize: none;
+    border: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+.note-txt-title:focus {
+    outline: none;
+}
+
 .img-container {
     margin: inherit;
     padding-bottom: 10px;
+}
+
+.bgColor {
+    display: list-item;
 }
