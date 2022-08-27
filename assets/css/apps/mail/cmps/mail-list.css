@@ -5,10 +5,12 @@
 
 .mail-list tr {
     border-bottom: 1px solid lightblue;
+    background-color: #f2f6fc;
 }
 
 .mail-list tr.mail-unread {
     font-weight: bold;
+    background-color: white;
 }
 
 /* .mail-preview-container{

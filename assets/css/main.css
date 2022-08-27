@@ -29,6 +29,8 @@
 @import './apps/note/cmps/note-preview.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-preview.css';
+@import './apps/mail/cmps/mail-filter.css';
+@import './apps/mail/cmps/mail-layout.css';
 
 .debug *{
     outline: 1px solid red;

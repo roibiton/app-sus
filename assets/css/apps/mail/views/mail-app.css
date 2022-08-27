@@ -1,13 +1,23 @@
+.mail-filter{
+    max-width: 60vw;
+    /* float: right; */
 
+    
+}
 
 .mail-list {
     padding: 2em;
-    width: 75vw;
+    width: 70vw;
 }
+
 .side-bar{
-    width: 20vw;
+    
     margin-top: 5em;
+    background: #f2f6fc99;
+    margin-top: 0;
+    
 }
+
 .mail-app{
    
 }

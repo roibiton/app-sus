@@ -71,25 +71,36 @@ export class MailApp extends React.Component {
             })
     }
 
+
     // onReadMail = (mailId) => {
     //     mailService.readMail(mailId)
     //         .then(() => {
     //             console.log('Read!')
     //         })
     // }
+    toggleMenu = () => {
+        document.body.classList.toggle('menu-open');
+    }
+
 
 
     render() {
         const { Link } = ReactRouterDOM
         const { mails } = this.state
-        const { onSetFilter, onSetStatusFilter, onRemoveMail, onStarredMail, onReadMail } = this
+        const { onSetFilter, onSetStatusFilter, onRemoveMail, onStarredMail, onReadMail,toggleMenu } = this
         return (
-            <section >
+            <section className="mail-app">
+                <div className="mail-screen" onClick={() => {
+                    toggleMenu()
+                }}>
+                </div>
                 <MailFilter onSetFilter={onSetFilter} />
+                <div className="full-email-list">
+                <div className="mail-side-bar flex space-between main-layout">
 
-                <div className=" flex mail-app">
-                    <div className="side-bar flex column">
-                        <Link to={"/mail/add"}>                          
+                    <div className="side-bar flex column main-nav-list ">
+                        <div className=" flex clean-list main-nav"></div>
+                        <Link to={"/mail/add"}>
                             <button>➡➡➡</button>
                         </Link>
                         <button onClick={() => {
@@ -98,14 +109,18 @@ export class MailApp extends React.Component {
                         <button onClick={() => {
                             onSetStatusFilter('sent')
                         }}>Sent</button>
-
                     </div>
-
-                    <div className="mail-list">
-                        <MailList mails={mails} onRemoveMail={onRemoveMail}
-                            onStarredMail={onStarredMail} onReadMail={onReadMail} />
-                    </div>
+                    <button className="menu-toggle button-menu" onClick={() => {
+                        toggleMenu()
+                    }}>☰
+                    </button>
                 </div>
+                <div className="mail-list">
+                    <MailList mails={mails} onRemoveMail={onRemoveMail}
+                        onStarredMail={onStarredMail} onReadMail={onReadMail} />
+                </div>
+                </div>
+
             </section>
         )
     }

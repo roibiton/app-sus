@@ -71,13 +71,14 @@ export class MailFilter extends React.Component {
             </div>
 
             <div>
-                <label htmlFor="by-starred">Starred :</label>
+                <label htmlFor="by-starred">Starred </label>
                 <select id="by-starred" name="isStarred" onChange={handleChange}>
                     <option value="">All</option>
                     <option value="starred">Starred</option>
                     <option value="unstarred">Unstarred</option>
                 </select>
             </div>
+            
 
 
         </section>

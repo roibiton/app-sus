@@ -25,7 +25,7 @@ const gMails = [
         id: 'e102',
         subject: 'Missed u..',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -42,7 +42,7 @@ const gMails = [
         id: 'e202',
         subject: 'new changes',
         body: 'transaction was successful. Thanks!',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -58,7 +58,7 @@ const gMails = [
         id: 'e302',
         subject: 'Fuck u..',
         body: 'hope we can meet again very soon😪',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -303,7 +303,7 @@ const gMails = [
         id: 'e1222',
         subject: 'Missed u..',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -320,7 +320,7 @@ const gMails = [
         id: 'e1212',
         subject: 'new changes',
         body: 'transaction was successful. Thanks!',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -336,7 +336,7 @@ const gMails = [
         id: 'e1192',
         subject: 'Fuck u..',
         body: 'hope we can meet again very soon...',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -581,7 +581,7 @@ const gMails = [
         id: 'e5572',
         subject: 'Missed u..',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -598,7 +598,7 @@ const gMails = [
         id: 'e5562',
         subject: 'new changes',
         body: 'transaction was successful. Thanks!',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {
@@ -614,7 +614,7 @@ const gMails = [
         id: 'e5552',
         subject: 'Fuck u..',
         body: 'hope we can meet again very soon...',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1203129930594,
         to: {

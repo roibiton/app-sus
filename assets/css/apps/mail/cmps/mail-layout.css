@@ -1,0 +1,109 @@
+.mail-side-bar .main-nav-list button {
+
+    text-decoration: overline;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f6fc99;;
+    padding: 1em;
+}
+
+.menu-toggle {
+    background-color: #292929;
+    color: #ffffff;
+    left: 0%;
+    top: 0%;
+}
+
+.mail-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+
+}
+
+body.menu-open .mail-screen {
+    pointer-events: auto;
+    opacity: 0.5;
+}
+.full-email-list{
+    display: flex;
+    justify-content: space-between;
+}
+.mail-list{
+    margin: auto;
+}
+
+@media (min-width: 540px) {
+   
+}
+@media (max-width: 900px) {
+    .main-nav-list {
+        position: fixed;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        background-color: rgb(255 255 255 / 90%);
+        height: 100vh;
+        border-inline-start: 1px solid #ccc;
+        /* width: 100%; */
+        transform: translateX(-100%);
+        transition: transform .6s, box-shadow .6s;
+    }
+
+    body.menu-open .main-nav-list {
+        box-shadow: -6px 0px 17px rgb(0 0 0 / 19%);
+        transform: translateX(0%);
+    }
+
+    .mail-side-bar .main-nav>* {
+        border-block-end: 1px solid #ccc;
+    }
+
+    .mail-side-bar .main-nav>* {
+        margin: 0;
+    }
+
+    .mail-side-bar .main-nav button {
+        padding: 65px 115px;
+        display: flex;
+    }
+    .menu-toggle {
+        opacity: 1;
+        background-color:#00000041
+    }
+    .mail-list {
+        width: 80vw;
+        margin: auto;
+        padding: unset
+        
+    }
+}
+
+@media (min-width: 900px) {
+    .menu-toggle {
+        opacity: 0;
+    }
+
+
+}
+
+@media (min-width: 1020px) {
+    .mail-side-bar .main-nav-list a {}
+
+    .full {
+        max-width: 100%;
+    }
+
+    .main-layout>*:not(.full) {
+        max-width: 980;
+    }
+}
