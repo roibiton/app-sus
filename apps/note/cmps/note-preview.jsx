@@ -64,7 +64,7 @@ export class NotePreview extends React.Component {
                         { backgroundColor: note.backgroundColor }
 
                     }>
-                    <h3 className="title">{note.info.title}</h3>
+                    <h3 className="title">{note.title}</h3>
                     <img className="img-container" src={`${note.info.url}`} />
                     <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box" ></input>
                 </div>;
@@ -78,7 +78,7 @@ export class NotePreview extends React.Component {
                         <li className="to-do"
                             style={
                                 { textDecoration: "none" }
-                            } onClick={markTodo} key={todo.doneAt}>{todo.txt} <button id={todo} onClick={removeTodo}>x</button> </li>
+                            } onClick={markTodo} key={todo.doneAt}>{todo.txt} <button className="remove-button" onClick={removeTodo}>x</button> </li>
                     )}
                         <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
                         ></input>
@@ -89,12 +89,24 @@ export class NotePreview extends React.Component {
                     style={
                         { backgroundColor: note.backgroundColor }
                     }>
-                    <h3 className="title">{note.info.title}</h3>
+                    <h3 className="title">{note.title}</h3>
                     <video width="200" height="150" controls>
                         <source src={`${note.info.url}`} type="video/mp4" />
                     </video>
                     <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
                     ></input>
+                </div>;
+            case ("note-audio"):
+                return <div className="note-box"
+                    style={
+                        { backgroundColor: note.backgroundColor }
+
+                    }>
+                    <h3 className="title">{note.title}</h3>
+                    <audio controls className="audio-container">
+                        <source src={`${note.info.url}`} type={`${note.aud}`}/>
+                    </audio>
+                    <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box" ></input>
                 </div>;
         }
     }

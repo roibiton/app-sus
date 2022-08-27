@@ -16,9 +16,9 @@ const gNotes = [
         id: "n102",
         backgroundColor: 'lightblue',
         type: "note-img",
+        title:'Bobi and Me',
         info: {
-            url: "../assets/img/meme-img.jpg",
-            title: "Bobi and Me"
+            url: "../assets/img/meme-img.jpg"
         },
         style: {
             backgroundColor: "#00d"
@@ -29,6 +29,7 @@ const gNotes = [
         backgroundColor: 'yellow',
         type: "note-todos",
         isMarked: false,
+        title:'',
         info: {
             title: "Get my stuff together",
             todos: [
@@ -41,9 +42,19 @@ const gNotes = [
         id: "n104",
         backgroundColor: 'red',
         type: "note-video",
+        title:'my-video',
         info: {
-            title: "my-video",
-            url: "../assets/vid/crystalised.mp4",
+            url: "../assets/vid/funny.mp4",
+        }
+    },
+    {
+        id: "n105",
+        backgroundColor: 'blue',
+        type: "note-audio",
+        title:'my-jam',
+        aud: 'audio/mp3',
+        info: {
+            url: "../assets/audio/TheEnd.mp3",
         }
     },
 ]
