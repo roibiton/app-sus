@@ -3,3 +3,26 @@ img{
     height: 200px;
     display: block;
 }
+
+.note-list-display {
+    background-color: var(--bg-clr2);
+    transition: transform 1.4s;
+}
+
+.note-list-layout {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 200px));
+    align-items: center;
+}
+
+.exit-button {
+    position: absolute;
+    border: none;
+    background: none;
+}

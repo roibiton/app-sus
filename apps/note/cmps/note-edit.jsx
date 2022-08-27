@@ -9,11 +9,13 @@ export class EditList extends React.Component {
     state = {
         note: {
             id: '',
+            url: '',
             title: '',
             info: { txt: '', },
             type: 'note-txt',
             newTxt: '',
             backgroundColor: 'lightblue'
+
         }
     }
 
@@ -35,7 +37,7 @@ export class EditList extends React.Component {
         }))
     }
 
-    onSubmit = (ev) => {
+    onSubmitNote = (ev) => {
         ev.preventDefault()
         const note = this.state.note
         const info = this.state.note.info
@@ -47,15 +49,29 @@ export class EditList extends React.Component {
         this.props.loadNotes()
     }
 
-    uploadPhoto = () => {
-        console.log('img')
+    uploadPhoto = (ev) => {
+        ev.preventDefault()
+        const note = this.state.note
+        const info = this.state.note.info
+        const notes = noteService._loadFromStorage()
+        note.id = utilService.makeId()
+        note.type = "note-img"
+        info.url = note.url
+        notes.push(note)
+        noteService._saveToStorage(notes)
+        this.props.loadNotes()
+
+        console.log(note)
+        // const note = this.state.note
+        // console.log(note.url)
+        // note.type = "note-img"
+
     }
 
     render() {
-        const { title, newTxt } = this.state.note
+        const { title, newTxt, url } = this.state.note
 
-        return <section className="note-container">
-            <div className="note-submit">
+        return <section className="note-submit">
                 <h2>Write a note</h2>
                 <form onSubmit={this.onSubmit}>
 
@@ -83,11 +99,18 @@ export class EditList extends React.Component {
                             onChange={this.handleChange}
                         />
                     </div>
+                    <button className="submit-btn" onClick={this.onSubmitNote} >Submit</button>  
+                    <input
+                            type="text"
+                            placeholder="url..."
+                            id="url"
+                            value={url}
+                            name="url"
+                            onChange={this.handleChange}
+                        />
+                    <button onClick={this.uploadPhoto} >Submit photo</button>
 
-                    <button className="btn btn-review">Submit</button>
-                    <button onClick={this.uploadPhoto}>img</button>
                 </form>
-            </div>
-        </section >
+            </section>
     }
 }
