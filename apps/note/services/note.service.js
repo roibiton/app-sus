@@ -66,6 +66,7 @@ export const noteService = {
     _saveToStorage,
     _loadFromStorage,
     gNotes,
+    onMailToNote,
 }
 
 function query() {
@@ -99,4 +100,15 @@ function getById(noteId) {
     const notes = _loadFromStorage()
     const note = notes.find(note => note.id === noteId)
     return Promise.resolve(note)
+}
+
+function onMailToNote(mailNote) {
+    const note = {info: {},}
+    note.id = utilService.makeId()
+    note.title = mailNote.subject
+    note.info.txt = mailNote.body
+    note.type = 'note-txt'
+    const notes = this._loadFromStorage()
+    notes.push(note)
+    this._saveToStorage(notes)
 }

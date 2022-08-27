@@ -53,6 +53,7 @@ export class EditList extends React.Component {
         console.log(note.url)
     }
 
+
     // uploadPhoto = (ev) => {
     //     ev.preventDefault()
     //     const note = this.state.note
