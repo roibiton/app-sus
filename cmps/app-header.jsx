@@ -1,3 +1,5 @@
+import { UserMsg } from "../cmps/user-msg.jsx"
+
 const { Link, NavLink, withRouter } = ReactRouterDOM
 export function AppHeader() {
 
@@ -5,11 +7,14 @@ export function AppHeader() {
         <Link to="/">
             <h3>LOGO!</h3>
         </Link>
+        <UserMsg />
+        
         <nav>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/note">Note</NavLink>
             <NavLink to="/mail">Mail</NavLink>
         </nav>
+        
     </header>
 }

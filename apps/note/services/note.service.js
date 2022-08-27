@@ -1,6 +1,6 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
-
+import { showErrorMsg, showSuccessMsg } from "../../../services/util.service.js"
 const KEY = 'noteDB'
 
 const gNotes = [
@@ -109,4 +109,5 @@ function onMailToNote(mailNote) {
     const notes = this._loadFromStorage()
     notes.push(note)
     this._saveToStorage(notes)
+    showSuccessMsg('saved as note')
 }
