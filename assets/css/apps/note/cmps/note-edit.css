@@ -1,11 +1,42 @@
+.submit-text-area {
+    border:none;
+    resize: none;
+    background-color: inherit;
+    justify-content: baseline; 
+    height: 20px;
+    margin-top: 2px;
+}
+
+input {
+    border: none;
+    resize: none;
+    background-color: inherit;
+}
+
 .note-submit {
     border: 2px solid;
     display: block;
     max-width: fit-content;
     margin: auto;
+    height: fit-content;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 1em;
+    transition: transform 1.4s;
+    text-align: -webkit-center;
+    text-rendering: geometricPrecision;
+    background-color: rgb(140, 193, 193);
 
 }
 
 .submit-btn {
     margin-right: 10px;
+    max-width: 180px;
 }
+
+.label-txt {
+    padding-bottom: 10px;
+    display: grid;
+}
+
