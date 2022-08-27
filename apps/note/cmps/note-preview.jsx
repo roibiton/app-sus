@@ -44,6 +44,10 @@ export class NotePreview extends React.Component {
         props.target.parentNode.hidden = 'true'
     }
 
+    sendAsMail(note){
+        console.log('note',note)
+    }
+
     render() {
         const { note } = this.props
         const { changeBG, markTodo, removeTodo } = this
@@ -57,6 +61,9 @@ export class NotePreview extends React.Component {
                     <textarea rows='6' cols='14' className="note-txt-area">{note.info.txt}</textarea>
                     <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
                     ></input>
+                    <button onClick={() => {
+                            this.sendAsMail(note)
+                        }}>Send as email</button>
                 </div>;
             case ("note-img"):
                 return <div className="note-box"
@@ -67,6 +74,7 @@ export class NotePreview extends React.Component {
                     <h3 className="title">{note.title}</h3>
                     <img className="img-container" src={`${note.info.url}`} />
                     <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box" ></input>
+
                 </div>;
             case ("note-todos"):
                 return <div className="note-box"
@@ -83,6 +91,7 @@ export class NotePreview extends React.Component {
                         <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
                         ></input>
                     </div>
+
                 </div>;
             case ("note-video"):
                 return <div className="note-box"
@@ -95,6 +104,7 @@ export class NotePreview extends React.Component {
                     </video>
                     <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
                     ></input>
+
                 </div>;
             case ("note-audio"):
                 return <div className="note-box"
@@ -107,6 +117,7 @@ export class NotePreview extends React.Component {
                         <source src={`${note.info.url}`} type={`${note.aud}`}/>
                     </audio>
                     <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box" ></input>
+
                 </div>;
         }
     }

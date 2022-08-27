@@ -1,7 +1,8 @@
 import { LongText } from '../cmps/long-text.jsx';
 import { mailService } from "../services/mail.service.js"
 import { utilService } from '../../../services/util.service.js';
-import { EditList } from '../../note/cmps/note-edit.jsx'
+import { noteService } from '../../note/services/note.service.js';
+
 const { Link } = ReactRouterDOM
 
 export class MailDetails extends React.Component {
@@ -35,7 +36,7 @@ export class MailDetails extends React.Component {
 
     saveAsNote = (mail)=>{
         console.log('mail:',mail)
-        
+        noteService.onMailToNote(mail)
         return mail
     }
     render() {
