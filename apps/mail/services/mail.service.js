@@ -1,5 +1,6 @@
 import { storageService } from "../../../services/storage.service.js"
 import { utilService } from "../../../services/util.service.js"
+import { showErrorMsg, showSuccessMsg } from "../../../services/util.service.js"
 export const mailService = {
     query,
     getById,
@@ -7,6 +8,8 @@ export const mailService = {
     sendNewMail,
     toggleIsStarred,
     setIsRead,
+    saveNoteAsEmail,
+
 
 }
 
@@ -955,4 +958,25 @@ function _loadFromStorage() {
 
 function _saveToStorage(mails) {
     storageService.saveToStorage(KEY, mails)
+}
+function saveNoteAsEmail(note){
+    const newMailFromNote ={
+        from: {
+            name: 'Appsus',
+            email: 'yosi@yosi.com'
+        },
+        id: utilService.makeId(3),
+        subject: note.title,
+        body: note.info.txt,
+        isRead: true,
+        isStarred: false,
+        sentAt: Date.now(),
+        to: {
+            name: 'from note',
+            email: 'google@keep.com'
+        }
+    }
+    showSuccessMsg('sent as email')
+    _add(newMailFromNote)
+
 }

@@ -1,8 +1,9 @@
 import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
-import { showErrorMsg, showSuccessMsg } from ' ../../../services/event-bus.service.js'
+import { showErrorMsg, showSuccessMsg } from ' ../../../event-bus.service.js'
 import { MailAdd } from "../views/mail-add.js"
+
 export class MailApp extends React.Component {
     state = {
         mails: [],
@@ -66,6 +67,7 @@ export class MailApp extends React.Component {
                 console.log('Starred!')
                 const mails = this.state.mails.map(mail => (mail.id !== mailId) ? mail : updatedMail)
                 this.setState({ mails })
+                showSuccessMsg('starred')
 
 
             })

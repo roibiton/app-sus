@@ -78,7 +78,8 @@ body.menu-open .mail-screen {
     }
     .menu-toggle {
         opacity: 1;
-        background-color:#00000041
+        background-color:#00000041;
+        height: 2em;
     }
     .mail-list {
         width: 80vw;

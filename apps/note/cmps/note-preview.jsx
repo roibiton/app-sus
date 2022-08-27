@@ -1,5 +1,5 @@
 import { noteService } from '../services/note.service.js';
-
+import { mailService } from '../../mail/services/mail.service.js';
 const { Link } = ReactRouterDOM
 
 export class NotePreview extends React.Component {
@@ -45,7 +45,7 @@ export class NotePreview extends React.Component {
     }
 
     sendAsMail(note){
-        console.log('note',note)
+        mailService.saveNoteAsEmail(note)
     }
 
     render() {
