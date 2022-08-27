@@ -6,7 +6,7 @@ const KEY = 'noteDB'
 const gNotes = [
     {
         id: "n101",
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
         type: "note-txt",
         title: "text note",
         info: {
@@ -15,19 +15,16 @@ const gNotes = [
     },
     {
         id: "n102",
-        backgroundColor: 'lightblue',
+        // backgroundColor: 'lightblue',
         type: "note-img",
         title:'Bobi and Me',
         info: {
             url: "../assets/img/meme-img.jpg"
         },
-        style: {
-            backgroundColor: "#00d"
-        }
     },
     {
         id: "n103",
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
         type: "note-todos",
         isMarked: false,
         title:'',
@@ -41,7 +38,7 @@ const gNotes = [
     },
     {
         id: "n104",
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         type: "note-video",
         title:'my-video',
         info: {
@@ -50,7 +47,7 @@ const gNotes = [
     },
     {
         id: "n105",
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
         type: "note-audio",
         title:'my-jam',
         aud: 'audio/mp3',

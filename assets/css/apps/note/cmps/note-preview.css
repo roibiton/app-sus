@@ -19,6 +19,7 @@
     transition: transform 1.4s;
     text-align: -webkit-center;
     text-rendering: geometricPrecision;
+    padding:5px;
     
 }
 
@@ -32,6 +33,7 @@
 
 .note-box:hover {
     background-color: rgb(216, 223, 229);
+    opacity: 1.0;
 }
 
 .to-do {

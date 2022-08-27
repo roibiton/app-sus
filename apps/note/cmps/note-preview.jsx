@@ -31,6 +31,7 @@ export class NotePreview extends React.Component {
 
     markTodo = (props) => {
         const { note } = this.props
+        console.log(props)
         note.marked = !note.marked
         if (note.marked === true) {
             props.target.style.textDecoration = "line-through"

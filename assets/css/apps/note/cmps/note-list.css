@@ -26,3 +26,7 @@ img{
     border: none;
     background: none;
 }
+
+.note-list-display:hover {
+    opacity: 1.0;
+}

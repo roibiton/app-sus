@@ -1,9 +1,9 @@
 .submit-text-area {
-    border:none;
+    /* border:none; */
     resize: none;
-    background-color: inherit;
+    /* background-color: inherit; */
     justify-content: baseline; 
-    height: 20px;
+    height: 25px;
     margin-top: 2px;
 }
 /* 
