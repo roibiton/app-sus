@@ -1,7 +1,7 @@
 import { LongText } from '../cmps/long-text.jsx';
 import { mailService } from "../services/mail.service.js"
 import { utilService } from '../../../services/util.service.js';
-
+import { EditList } from '../../note/cmps/note-edit.jsx'
 const { Link } = ReactRouterDOM
 
 export class MailDetails extends React.Component {
@@ -29,17 +29,19 @@ export class MailDetails extends React.Component {
             })
     }
     
-
-   
-
     onGoBack = () => {
         this.props.history.push('/mail')
     }
 
+    saveAsNote = (mail)=>{
+        console.log('mail:',mail)
+        
+        return mail
+    }
     render() {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
-        const { onRemoveMail, onGoBack } = this
+        const { onRemoveMail, onGoBack,saveAsNote} = this
         const sentTime = utilService.getCurrFullDate(mail.sentAt)
 
         return <article>
@@ -49,6 +51,9 @@ export class MailDetails extends React.Component {
             <p>{sentTime}</p>
             <button onClick={onRemoveMail}>Delete</button>
             <button onClick={onGoBack}>Go Back!</button>
+            <button onClick={() => {
+                            saveAsNote(mail)
+                        }}>save as note</button>
         </article>
 
 
