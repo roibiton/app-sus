@@ -4,7 +4,7 @@
     /* background-color: inherit; */
     justify-content: baseline; 
     height: 25px;
-    margin-top: 2px;
+    margin-top: 2px
 }
 /* 
 input {
@@ -22,11 +22,11 @@ input {
     width: 100%;
     object-fit: cover;
     cursor: pointer;
-    border-radius: 1em;
+    border-radius: 0.5em;
     transition: transform 1.4s;
     text-align: -webkit-center;
     text-rendering: geometricPrecision;
-    background-color: rgb(140, 193, 193);
+    background-color: rgb(218, 232, 232);
 
 }
 
@@ -40,3 +40,10 @@ input {
     display: grid;
 }
 
+.input-field {
+    margin-bottom: 10px;
+}
+
+.upper-function-buttons {
+    padding:8px
+}

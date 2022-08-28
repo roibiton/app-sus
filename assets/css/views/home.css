@@ -1,0 +1,21 @@
+.footer-text {
+    color: var(--clr8);
+    font-size: 1.1125rem;
+    line-height: 1.53846;
+    letter-spacing: var(--normal-letter-spacing);
+    margin-bottom: 34px;
+    height: 50px;
+}
+
+.main-footer-container {
+    max-width: var(--small);
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+    background-color: rgb(246, 246, 246);
+    opacity: 1;
+}
+
+.main-footer {
+    text-align: center;
+}
+

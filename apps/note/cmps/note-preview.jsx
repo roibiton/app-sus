@@ -1,5 +1,6 @@
 import { noteService } from '../services/note.service.js';
 import { mailService } from '../../mail/services/mail.service.js';
+
 const { Link } = ReactRouterDOM
 
 export class NotePreview extends React.Component {
@@ -49,22 +50,34 @@ export class NotePreview extends React.Component {
         mailService.saveNoteAsEmail(note)
     }
 
+    updateText = (props) => {
+        const { note } = this.props
+        note.info.txt = props.target.value
+        this.setState({ note })
+    }
+
+    updateTextTitle = (props) => {
+        const { note } = this.props
+        note.title = props.target.value
+        this.setState({ note })
+    }
+
     render() {
         const { note } = this.props
-        const { changeBG, markTodo, removeTodo } = this
+        const { changeBG, markTodo, removeTodo, updateText ,updateTextTitle} = this
         switch (note.type) {
             case ("note-txt"):
                 return <div className="note-box"
                     style={
                         { backgroundColor: note.backgroundColor }
                     }>
-                    <textarea className="note-txt-title" >{note.title}</textarea>
-                    <textarea rows='6' cols='14' className="note-txt-area">{note.info.txt}</textarea>
-                    <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
+                    <textarea onChange={updateTextTitle} className="note-txt-title" value={note.title}/>
+                    <textarea onChange={updateText} className="note-txt-area" value={note.info.txt}/>
+                    <input className="fa fa-palette backg-color" onChange={changeBG} type="color" name="note-box"
                     ></input>
-                    <button onClick={() => {
+                    <i className="fa fa-email" onClick={() => {
                             this.sendAsMail(note)
-                        }}>Send as email</button>
+                        }}></i>
                 </div>;
             case ("note-img"):
                 return <div className="note-box"
@@ -74,7 +87,7 @@ export class NotePreview extends React.Component {
                     }>
                     <h3 className="title">{note.title}</h3>
                     <img className="img-container" src={`${note.info.url}`} />
-                    <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box" ></input>
+                    <input className="fa fa-palette backg-color" onChange={changeBG} type="color"  name="note-box" ></input>
 
                 </div>;
             case ("note-todos"):
@@ -89,7 +102,7 @@ export class NotePreview extends React.Component {
                                 { textDecoration: "none" }
                             } onClick={markTodo} key={todo.doneAt}>{todo.txt} <button className="remove-button" onClick={removeTodo}>x</button> </li>
                     )}
-                        <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
+                        <input className="fa fa-palette backg-color" onChange={changeBG} type="color" name="note-box"
                         ></input>
                     </div>
 
@@ -103,7 +116,7 @@ export class NotePreview extends React.Component {
                     <video width="200" height="150" controls>
                         <source src={`${note.info.url}`} type="video/mp4" />
                     </video>
-                    <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box"
+                    <input className="fa fa-palette backg-color" onChange={changeBG} type="color" name="note-box"
                     ></input>
 
                 </div>;
@@ -117,7 +130,7 @@ export class NotePreview extends React.Component {
                     <audio controls className="audio-container">
                         <source src={`${note.info.url}`} type={`${note.aud}`}/>
                     </audio>
-                    <input className="bgColor" onChange={changeBG} type="color" id="head" name="note-box" ></input>
+                    <input className="fa fa-palette backg-color" onChange={changeBG} type="color" id="head" name="note-box" ></input>
 
                 </div>;
         }

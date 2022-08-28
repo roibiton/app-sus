@@ -1,6 +1,6 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
-import { showErrorMsg, showSuccessMsg } from "../../../services/util.service.js"
+import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
 const KEY = 'noteDB'
 
 const gNotes = [

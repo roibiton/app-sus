@@ -146,9 +146,9 @@ export class EditList extends React.Component {
         const { title, newTxt } = this.state.note
         
         return <section className="note-submit">
-                <button onClick={this.changeSubmitTxt}>default</button>
-                <button onClick={this.changeSubmitTodo}>todo</button>
-                <button onClick={this.addTodoLine}>add todo line</button>
+                <i className="fa fa-txt fa-files upper-function-buttons" onClick={this.changeSubmitTxt}>/</i>
+                <i className="fa fa-todo upper-function-buttons" onClick={this.changeSubmitTodo}></i>
+                <i className="fa fa-plus fa-plusline upper-function-buttons" onClick={this.addTodoLine}></i>
                 <h2>Write a note</h2>
                 <form onSubmit={this.onSubmit}>
 
@@ -176,7 +176,7 @@ export class EditList extends React.Component {
                             onChange={this.handleChange}
                         />
                     </div>
-                    <button className="submit-btn" onClick={this.onSubmitNote} >Submit</button>  
+                    <i className="fa fa-plus" onClick={this.onSubmitNote}></i>
                     <input className="submit-btn" type="file" onChange={this.loadImageFromInput}/>
                 </form>
             </section>
