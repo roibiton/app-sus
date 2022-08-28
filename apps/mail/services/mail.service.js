@@ -62,7 +62,7 @@ const gMails = [
         subject: 'Fuck u..',
         body: 'hope we can meet again very soon😪',
         isRead: true,
-        isStarred: false,
+        isStarred: true,
         sentAt: 1421339930594,
         to: {
             name: 'coffeshop',
@@ -77,7 +77,7 @@ const gMails = [
         id: 'e101',
         subject: 'Hello',
         body: 'Important policy updates coming to Discord',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1555133920434,
         to: {
@@ -94,7 +94,7 @@ const gMails = [
         subject: 'Thanks!',
         body: 'Thank You For Your Purchase, Your PlayStation™Store transaction was successful. Thanks!',
         isRead: false,
-        isStarred: false,
+        isStarred: true,
         sentAt: 1442421339434,
         to: {
             name: 'Appsus',
@@ -146,7 +146,7 @@ const gMails = [
         Hello,
         Your order for event 899 has been registered in our system and is now pending for the producer's confirmation.`,
         isRead: false,
-        isStarred: false,
+        isStarred: true,
         sentAt: 139652620594,
         to: {
             name: 'Appsus',
@@ -160,7 +160,7 @@ const gMails = [
         id: 'e107',
         subject: 'subscribe',
         body: `Order confirmations are the sole responsibility of the event's producer and are subjected to the licensed amount of attendees allowed in venue.`,
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 149752620594,
         to: {
@@ -176,7 +176,7 @@ const gMails = [
         subject: 'hey!',
         body: `you will received a text message and an email with your order confirmation and digital ticket to enter the event with.`,
         isRead: false,
-        isStarred: false,
+        isStarred: true,
         sentAt: 139652620594,
         to: {
             name: 'Appsus',
@@ -191,7 +191,7 @@ const gMails = [
         id: 'e109',
         subject: 'Hello',
         body: 'Important policy updates coming to Discord',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1442133920434,
         to: {
@@ -242,8 +242,8 @@ const gMails = [
         We’d be grateful if you would review us on Tripadvisor. It’s the world’s largest travel site, helping millions of visitors every month plan the perfect trip.
         Our guests often tell us how helpful it is to read past guests' reviews before booking their own visits. And we're always eager to hear what you liked and how we can improve.       
         Thanks again, and we hope to see you again soon.`,
-        isRead: false,
-        isStarred: false,
+        isRead: true,
+        isStarred: true,
         sentAt: 126142620594,
         to: {
             name: 'Appsus',
@@ -324,7 +324,7 @@ const gMails = [
         subject: 'new changes',
         body: 'transaction was successful. Thanks!',
         isRead: true,
-        isStarred: false,
+        isStarred: true,
         sentAt: 1309129930594,
         to: {
             name: 'roni',
@@ -355,7 +355,7 @@ const gMails = [
         id: 'e1181',
         subject: 'Hello',
         body: 'Important policy updates coming to Discord',
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1442133920434,
         to: {
@@ -388,7 +388,7 @@ const gMails = [
         subject: 'new changes',
         body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
         isRead: false,
-        isStarred: false,
+        isStarred: true,
         sentAt: 1385422620594,
         to: {
             name: 'Appsus',
@@ -423,7 +423,7 @@ const gMails = [
         body: `
         Hello,
         Your order for event 899 has been registered in our system and is now pending for the producer's confirmation.`,
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 150652620594,
         to: {
@@ -501,7 +501,7 @@ const gMails = [
         id: 'e174',
         subject: 'new changes',
         body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1385422620594,
         to: {
@@ -550,7 +550,7 @@ const gMails = [
         id: 'e145',
         subject: 'fuck you!',
         body: `Top 3 Ways to Secure Your Zoom Meetings`,
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 166652620594,
         to: {
@@ -665,7 +665,7 @@ const gMails = [
         id: 'e5524',
         subject: 'new changes',
         body: "These changes will take effect on  We’re letting you know ahead of time so you can learn what’s changing.",
-        isRead: false,
+        isRead: true,
         isStarred: false,
         sentAt: 1385422620594,
         to: {

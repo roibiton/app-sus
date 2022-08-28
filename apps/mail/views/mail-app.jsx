@@ -32,7 +32,7 @@ export class MailApp extends React.Component {
         const filterBy = { ...this.state.filterBy }
         filterBy.status = status
         this.onSetFilter(filterBy)
-        this.toggleMenu()
+        // this.toggleMenu()
     }
 
     onAddItem = () => {
