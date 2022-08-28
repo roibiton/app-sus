@@ -16,6 +16,7 @@
 
 /* @import './apps/note/views/note-app.css'; */
 @import './apps/mail/views/mail-app.css';
+@import './apps/mail/views/mail-details.css';
 
 
 
@@ -31,6 +32,7 @@
 @import './apps/mail/cmps/mail-preview.css';
 @import './apps/mail/cmps/mail-filter.css';
 @import './apps/mail/cmps/mail-layout.css';
+
 
 .debug *{
     outline: 1px solid red;

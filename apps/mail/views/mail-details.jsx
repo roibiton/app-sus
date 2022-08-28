@@ -29,32 +29,45 @@ export class MailDetails extends React.Component {
                 mailService.setIsRead(mailId, true)
             })
     }
-    
+
     onGoBack = () => {
         this.props.history.push('/mail')
     }
 
-    saveAsNote = (mail)=>{
-        console.log('mail:',mail)
+    saveAsNote = (mail) => {
+        console.log('mail:', mail)
         noteService.onMailToNote(mail)
         return mail
     }
     render() {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
-        const { onRemoveMail, onGoBack,saveAsNote} = this
+        const { onRemoveMail, onGoBack, saveAsNote } = this
         const sentTime = utilService.getCurrFullDate(mail.sentAt)
 
         return <article>
-            <h2>{mail.from.name}</h2>
-            <h4>{mail.subject}</h4>
-            <LongText mailText={mail.body} val1={'⬅'} val2={'➡'}/>
-            <p>{sentTime}</p>
-            <button onClick={onRemoveMail}>Delete</button>
-            <button onClick={onGoBack}>Go Back!</button>
-            <button onClick={() => {
-                            saveAsNote(mail)
-                        }}>save as note</button>
+            <div className="mail-details">
+                <h2>{mail.from.name}</h2>
+                <h4>{mail.subject}</h4>
+                <LongText mailText={mail.body} val1={'⬅'} val2={'➡'} />
+                <p>{sentTime}</p>
+                <div className="mail-details-btns">
+                <button onClick={onRemoveMail}>Delete</button>
+                <button onClick={onGoBack}>Go Back!</button>
+                <button onClick={() => {
+                    saveAsNote(mail)
+                }}>save as note
+                </button>
+                </div>
+                <div className="mail-details-btns">
+                    <button className="btn btn-mail-preview" onClick={() => onRemoveMail(mail.id)}>
+                        <i className="fa-solid fa-trash-can"></i>
+                    </button>
+                    <button className="btn btn-mail-preview btn-star" onClick={() => onStarredMail(mail.id)}>
+                        <i className={((mail.isStarred) ? 'fa-solid' : 'fa-regular') + " fa-star"}></i>
+                    </button>
+                </div>
+            </div>
         </article>
 
 

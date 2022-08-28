@@ -1,0 +1,12 @@
+.mail-details{
+    padding: 3em;
+    
+}
+
+.mail-details >*{
+    padding: 0.65em;
+    
+}
+.mail-details-btns >*{
+    margin: 0 0.4em;
+}

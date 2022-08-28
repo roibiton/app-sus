@@ -26,7 +26,9 @@ export class MailPreview extends React.Component {
             </td>
             <td>{sentTime}</td>
             <td>
-                <button className="btn btn-mail-preview" onClick={() => onRemoveMail(mail.id)}>❌</button>
+                <button className="btn btn-mail-preview" onClick={() => onRemoveMail(mail.id)}>
+                    <i className="fa-solid fa-trash-can"></i>
+                </button>
                 <button className="btn btn-mail-preview btn-star" onClick={() => onStarredMail(mail.id)}>
                     <i className={((mail.isStarred) ? 'fa-solid' : 'fa-regular') + " fa-star"}></i>
                 </button>

@@ -6,7 +6,8 @@
     justify-content: center;
     align-items: center;
     background-color: #f2f6fc99;;
-    padding: 1em;
+    padding: 2em;
+    width: 15em;
 }
 
 .menu-toggle {
@@ -73,8 +74,9 @@ body.menu-open .mail-screen {
     }
 
     .mail-side-bar .main-nav button {
-        padding: 65px 115px;
+       
         display: flex;
+
     }
     .menu-toggle {
         opacity: 1;

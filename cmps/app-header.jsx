@@ -5,9 +5,9 @@ export function AppHeader() {
 
     return <header className="app-header">
         <Link to="/">
-            <h3>LOGO!</h3>
+            <h3><i className="logo fa-brands fa-google-plus-g" ></i></h3>
         </Link>
-        <UserMsg />
+        <UserMsg /><i class=""></i>
         
         <nav>
             <NavLink exact to="/">Home</NavLink>

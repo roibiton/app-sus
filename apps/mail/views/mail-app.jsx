@@ -32,6 +32,7 @@ export class MailApp extends React.Component {
         const filterBy = { ...this.state.filterBy }
         filterBy.status = status
         this.onSetFilter(filterBy)
+        this.toggleMenu()
     }
 
     onAddItem = () => {
@@ -103,7 +104,7 @@ export class MailApp extends React.Component {
                     <div className="side-bar flex column main-nav-list ">
                         <div className=" flex clean-list main-nav"></div>
                         <Link to={"/mail/add"}>
-                            <button>➡➡➡</button>
+                            <button><div>🖍</div></button>
                         </Link>
                         <button onClick={() => {
                             onSetStatusFilter('inbox')
