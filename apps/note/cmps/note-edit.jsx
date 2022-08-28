@@ -11,11 +11,9 @@ export class EditList extends React.Component {
             id: '',
             url: '',
             title: '',
-            info: { txt: '', },
+            info: { txt: '', todos : [{txt:''}],}, 
             type: 'note-txt',
             newTxt: '',
-            backgroundColor: 'lightblue'
-
         },
         isTodo: false
     }
@@ -46,11 +44,11 @@ export class EditList extends React.Component {
         note.id = utilService.makeId()
         info.txt = this.state.note.newTxt
         info.url = note.url
+        info.todos[0].txt = info.txt
+        info.title = note.title
         notes.push(note)
         noteService._saveToStorage(notes)
         this.props.loadNotes()
-        console.log(info.url)
-        console.log(note.url)
     }
 
 
@@ -109,7 +107,9 @@ export class EditList extends React.Component {
                 note.type = "note-audio"
                 note.aud = "audio/wav"
                 return
-            
+            default:
+                note.type = "note-txt"
+                return
         }
         // console.log(reader.readAsText(ev.target.files[0]))
         // note.url = reader.readAsDataURL(ev.target.files[0])
@@ -122,19 +122,33 @@ export class EditList extends React.Component {
     //     console.log(ev.target.files,'what')
     // }
 
+    changeSubmitTxt = (ev) => {
+        ev.preventDefault()
+        const note = this.state.note
+        note.type = "note-txt"
+    }
+
+    changeSubmitTodo = (ev) => {
+        ev.preventDefault()
+        const note = this.state.note
+        note.type = "note-todos"
+    }
+
+    addTodoLine = (ev) => {
+        ev.preventDefault()
+        const note = this.state.note
+        const info = note.info
+        const newLine = {txt:note.newTxt}
+        info.todos.push(newLine)
+    }
+
     render() {
         const { title, newTxt } = this.state.note
         
         return <section className="note-submit">
-            {/* <button onClick={change-view}>default</button>
-            <button onClick={change-view}>todo</button>
-            {switch(this.state.isTodo) {
-                case():
-                    
-                    break;
-            
-                default:
-                    break; */}
+                <i className="fa fa-txt fa-files upper-function-buttons" onClick={this.changeSubmitTxt}>/</i>
+                <i className="fa fa-todo upper-function-buttons" onClick={this.changeSubmitTodo}></i>
+                <i className="fa fa-plus fa-plusline upper-function-buttons" onClick={this.addTodoLine}></i>
                 <h2>Write a note</h2>
                 <form onSubmit={this.onSubmit}>
 
@@ -142,9 +156,9 @@ export class EditList extends React.Component {
                         <label className="label-txt" htmlFor="title">title </label>
                         <input
                             ref={this.inputRef}
-                            type="text"
-                            placeholder="title..."
-                            id="title"
+                            // type="text"
+                            // placeholder="title..."
+                            // id="title"
                             value={title}
                             name="title"
                             onChange={this.handleChange}
@@ -152,17 +166,17 @@ export class EditList extends React.Component {
                     </div>
 
                     <div className="input-field">
-                        <label className="label-txt" htmlFor="txt">Write something </label>
+                        <label className="label-txt" htmlFor="txt">Note body</label>
                         <textarea className="submit-text-area"
-                            type="textarea"
-                            placeholder="text..."
-                            id="newTxt"
+                            // type="textarea"
+                            // placeholder="text..."
+                            // id="newTxt"
                             value={newTxt}
                             name="newTxt"
                             onChange={this.handleChange}
                         />
                     </div>
-                    <button className="submit-btn" onClick={this.onSubmitNote} >Submit</button>  
+                    <i className="fa fa-plus" onClick={this.onSubmitNote}></i>
                     <input className="submit-btn" type="file" onChange={this.loadImageFromInput}/>
                 </form>
             </section>
